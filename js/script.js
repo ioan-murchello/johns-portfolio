@@ -17,7 +17,24 @@ testWebP(function (support) {
 var burgerBtn = document.querySelector('.header__menu_icon');
 var btnLines = burgerBtn.querySelectorAll("span");
 var navbar = document.querySelector(".header__nav");
-burgerBtn.addEventListener("click", function () {
+var links = navbar.querySelectorAll('.header__links');
+
+burgerBtn.addEventListener("click", toggler);
+navbar.addEventListener("click", toggler);
+links.forEach(link => {
+  link.addEventListener('click', () => {
+    if (
+      document.readyState === "complete" ||
+      document.readyState === "loaded"
+    ) {
+      toggler()
+    }
+  })
+})
+
+
+
+function toggler () {
   if (!navbar.classList.contains("toggle")) {
     navbar.classList.add("toggle");
     document.body.style.overflow = 'hidden';
@@ -31,4 +48,4 @@ burgerBtn.addEventListener("click", function () {
     btnLines[2].classList.remove("second_line");
     btnLines[1].classList.remove("third_line");
   }
-});
+}
