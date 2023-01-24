@@ -3,7 +3,8 @@
 @font-face {
   font-family: "icons";
   font-display: swap;
-  src: local() url("../fonts/icons.woff") format("woff"), url("../fonts/icons.woff2") format("woff2");
+  src: local() url("../fonts/icons.woff") format("woff"),
+    url("../fonts/icons.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
 }
@@ -28,7 +29,6 @@
 .header__menu_icon {
   position: fixed;
   display: flex;
-  margin: 20px 10px 0 0;
   flex-direction: column;
   z-index: 600;
 }
@@ -103,7 +103,7 @@
   color: #ff6464;
 }
 
-.first_line {
+.active-burger:first-child {
   transform: translate(0, 9px);
   -webkit-transform: translate(0, 9px) rotate(45deg);
   -moz-transform: translate(0, 9px);
@@ -111,20 +111,20 @@
   -o-transform: translate(0, 9px);
 }
 
-.second_line {
-  transform: translate(0, -7px) rotate(-45deg);
-  -webkit-transform: translate(0, -7px) rotate(-45deg);
-  -moz-transform: translate(0, -7px) rotate(-45deg);
-  -ms-transform: translate(0, -7px) rotate(-45deg);
-  -o-transform: translate(0, -7px) rotate(-45deg);
-}
-
-.third_line {
+.active-burger:nth-child(2) {
   transform: rotate(360deg) scale(0);
   -o-transform: rotate(360deg) scale(0);
   -webkit-transform: rotate(360deg) scale(0);
   -moz-transform: rotate(360deg) scale(0);
   -ms-transform: rotate(360deg) scale(0);
+}
+
+.active-burger:last-child {
+  transform: translate(0, -7px) rotate(-45deg);
+  -webkit-transform: translate(0, -7px) rotate(-45deg);
+  -moz-transform: translate(0, -7px) rotate(-45deg);
+  -ms-transform: translate(0, -7px) rotate(-45deg);
+  -o-transform: translate(0, -7px) rotate(-45deg);
 }
 
 .hello {
@@ -155,11 +155,13 @@
 }
 
 .hello__btn {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #fff;
   padding: 12px 20px;
   width: 208px;
-  height: 47px;
+  height: 44px;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
@@ -200,7 +202,7 @@
 }
 
 .recent__posts {
-  background-color: #EDF7FA;
+  background-color: #edf7fa;
 }
 
 .recent__posts_header {
@@ -384,13 +386,16 @@
 @font-face {
   font-family: "icons";
   src: url("../fonts/icons.eot?32vdtu");
-  src: url("../fonts/icons.eot?32vdtu#iefix") format("embedded-opentype"), url("../fonts/icons.ttf?32vdtu") format("truetype"), url("../fonts/icons.woff?32vdtu") format("woff"), url("../fonts/icons.svg?32vdtu#icons") format("svg");
+  src: url("../fonts/icons.eot?32vdtu#iefix") format("embedded-opentype"),
+    url("../fonts/icons.ttf?32vdtu") format("truetype"),
+    url("../fonts/icons.woff?32vdtu") format("woff"),
+    url("../fonts/icons.svg?32vdtu#icons") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^=_icon-],
+[class^="_icon-"],
 [class*=" _icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: "icons" !important;
@@ -405,7 +410,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-[class^=_icon-]::before,
+[class^="_icon-"]::before,
 [class*=" _icon-"]::before {
   display: block;
 }
@@ -619,7 +624,7 @@ a {
 }
 
 body {
-  font-family: 'Heebo', sans-serif;
+  font-family: "Heebo", sans-serif;
   color: #21243d;
 }
 
@@ -700,12 +705,12 @@ body {
   top: 0;
   left: 0;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 @media (min-width: 768px) {
   .header__links:hover {
-    color: #FF6464;
+    color: #ff6464;
   }
 
   .hello__btn:hover {
@@ -713,7 +718,7 @@ body {
   }
 
   .recent-posts_title:hover {
-    color: #FF6464;
+    color: #ff6464;
   }
 
   .container__info_title:hover {
@@ -762,10 +767,11 @@ body {
 
   .header__ul {
     margin: 0 0 0 0;
+    padding: 0 0 60px 0;
   }
 
   .header__li {
-    margin: 0 0 20px 0;
+    margin: 0 0 10px 0;
   }
 
   .header__links {
@@ -853,7 +859,7 @@ body {
     padding: 0 0 0 0;
   }
 
-  .toggle {
+  .active {
     left: 0;
   }
 }
@@ -877,12 +883,12 @@ body {
 
   .hello__title {
     margin: 0 0 20px 0;
-    font-size: 38px;
+    font-size: 35px;
   }
 
   .hello__btn {
-    font-size: 17px;
-    padding: 12px 10px;
+    font-size: 15px;
+    padding: 12px 6px;
     width: 160px;
   }
 
@@ -890,7 +896,7 @@ body {
     width: auto;
   }
 
-  .hello__avatar{
+  .hello__avatar {
     flex: 0 0 220px;
     height: 220px;
   }
@@ -950,7 +956,8 @@ body {
   }
 
   .arcticle__year {
-    font-size: 10px;
+    font-size: 14px;
+    width: 68px;
   }
 
   .arcticle__category {
@@ -971,4 +978,15 @@ body {
   .title-posts {
     font-size: 18px;
   }
+}
+
+@media(max-width: 320px){
+  .container__image{
+  flex: 0 0 200px;
+    
+  }
+}
+
+.blocked{
+  overflow: hidden;
 }

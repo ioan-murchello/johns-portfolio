@@ -14,38 +14,53 @@ testWebP(function (support) {
     document.querySelector('body').classList.add('no-webp');
   }
 });
-var burgerBtn = document.querySelector('.header__menu_icon');
-var btnLines = burgerBtn.querySelectorAll("span");
-var navbar = document.querySelector(".header__nav");
-var links = navbar.querySelectorAll('.header__links');
+// var burgerBtn = document.querySelector('.header__menu_icon');
+// var btnLines = burgerBtn.querySelectorAll("span");
+// var navbar = document.querySelector(".header__nav");
+// var links = navbar.querySelectorAll('.header__links');
 
-burgerBtn.addEventListener("click", toggler);
-navbar.addEventListener("click", toggler);
-links.forEach(link => {
-  link.addEventListener('click', () => {
-    if (
-      document.readyState === "complete" ||
-      document.readyState === "loaded"
-    ) {
-      toggler()
-    }
+ 
+
+
+
+
+
+
+function burgerMenu() {
+  const burgerBtn = document.querySelector(".header__menu_icon"),
+    btnLines = burgerBtn.querySelectorAll("span"),
+    body = document.querySelector("body"),
+    navbar = document.querySelector(".header__nav");
+  
+      
+  navbar.addEventListener('click', () => {
+    navbar.classList.remove("active");
+    body.classList.remove("blocked");
+    btnLines.forEach((line) => line.classList.remove("active-burger")); 
   })
-})
 
+  burgerBtn.addEventListener("click", function () {
+    if (!navbar.classList.contains("active")) {
+      navbar.classList.add("active");
+      btnLines.forEach((line) => line.classList.add("active-burger"));
+      body.classList.add("blocked"); 
+    } else {
+      navbar.classList.remove("active");
+      body.classList.remove("blocked");
+      btnLines.forEach((line) => line.classList.remove("active-burger"));
+    }
+  });
 
-
-function toggler () {
-  if (!navbar.classList.contains("toggle")) {
-    navbar.classList.add("toggle");
-    document.body.style.overflow = 'hidden';
-    btnLines[0].classList.add("first_line");
-    btnLines[2].classList.add("second_line");
-    btnLines[1].classList.add("third_line");
-  } else {
-    navbar.classList.remove("toggle");
-    document.body.style.overflow = "";
-    btnLines[0].classList.remove("first_line");
-    btnLines[2].classList.remove("second_line");
-    btnLines[1].classList.remove("third_line");
-  }
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 764) {
+      navbar.classList.remove("active");
+      body.classList.remove("blocked"); 
+      btnLines.forEach((line) => line.classList.remove("active-burger"));
+    }
+  });
 }
+
+burgerMenu();
+//-----------------------------------------------
+
+ 
