@@ -155,17 +155,14 @@
 }
 
 .hello__btn {
-  display: flex;
-  justify-content: center;
+  display: inlin-flex;
   align-items: center;
   color: #fff;
-  padding: 12px 20px;
-  width: 208px;
-  height: 44px;
+  padding: 18px 20px;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
-  line-height: 145%;
+  line-height: 20 / 20 * 100%;
 }
 
 .hello__avatar {
@@ -887,9 +884,8 @@ body {
   }
 
   .hello__btn {
-    font-size: 14px;
-    padding: 12px 0;
-    width: 160px;
+    font-size: 13px;
+    padding: 10px 12px;
   }
 
   .hello__avatar_rapper {
