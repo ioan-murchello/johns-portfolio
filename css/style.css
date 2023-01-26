@@ -887,8 +887,8 @@ body {
   }
 
   .hello__btn {
-    font-size: 15px;
-    padding: 12px 6px;
+    font-size: 14px;
+    padding: 12px 0;
     width: 160px;
   }
 
@@ -980,13 +980,16 @@ body {
   }
 }
 
-@media(max-width: 320px){
-  .container__image{
-  flex: 0 0 200px;
-    
+@media (max-width: 320px) {
+  .container__image {
+    flex: 0 0 200px;
+  }
+  .hello__avatar{
+    flex: 0 0 200px;
+    height: 200px;
   }
 }
 
-.blocked{
+.blocked {
   overflow: hidden;
 }
